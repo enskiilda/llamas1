@@ -1,0 +1,14 @@
+# Python Backend Requirements
+
+# Web Framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+
+# OpenAI SDK for NVIDIA API
+openai==1.57.4
+
+# OnKernel SDK for browser control
+onkernel==0.20.1
+
+# CORS Support
+python-multipart==0.0.19
