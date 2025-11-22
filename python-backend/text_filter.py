@@ -55,7 +55,7 @@ def remove_json_from_text(text: str) -> str:
     cleaned = re.sub(r'!is[a-z]*', ' ', cleaned, flags=re.IGNORECASE)
     
     # ETAP 10: Usuń fragmenty rozpoczynające się od znaku specjalnego
-    cleaned = re.sub(r'^[\{\["'].*', ' ', cleaned, flags=re.MULTILINE)
+    cleaned = re.sub(r'^[\{\[\"\'].*', ' ', cleaned, flags=re.MULTILINE)
     
     # ETAP 10.5: Usuń same nawiasy klamrowe i słowo assistant
     cleaned = re.sub(r'\{assistant', ' ', cleaned, flags=re.IGNORECASE)

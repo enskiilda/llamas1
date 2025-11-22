@@ -341,9 +341,13 @@ async def handle_chat_stream(
                 # Execute the tool - import tool executor
                 from tool_executor import execute_tool
                 
-                screenshot_data, tool_result = await execute_tool(
-                    tool_call, parsed_args, desktop, kernel_client, send_event
+                screenshot_data, tool_result, events_to_send = await execute_tool(
+                    tool_call, parsed_args, desktop, kernel_client
                 )
+                
+                # Send all events from tool execution
+                for event in events_to_send:
+                    yield send_event(event)
                 
                 # Send tool result to chat history
                 if screenshot_data:
